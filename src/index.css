@@ -385,4 +385,14 @@
   .animate-float-slow {
     animation: float 8s ease-in-out infinite;
   }
+
+  /* Hide scrollbar while maintaining scroll functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

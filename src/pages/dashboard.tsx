@@ -267,12 +267,13 @@ export default function Dashboard() {
           transition={{ duration: 0.5 }}
         >
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl rounded-2xl grid w-full grid-cols-4 lg:grid-cols-7 mb-8 h-auto gap-3 p-3 shadow-lg border border-white/20 dark:border-slate-700/50">
-            <TabsTrigger
-              value="guide"
-              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-rose-200/50 dark:border-rose-800/30 hover:border-rose-300 dark:hover:border-rose-700 hover:shadow-md data-[state=active]:from-rose-50 data-[state=active]:to-rose-100/80 dark:data-[state=active]:from-rose-950/50 dark:data-[state=active]:to-rose-900/50 data-[state=active]:border-rose-400 dark:data-[state=active]:border-rose-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden"
-              data-testid="tab-guide"
-            >
+          <div className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-xl rounded-2xl mb-8 p-3 shadow-lg border border-white/20 dark:border-slate-700/50 overflow-hidden">
+            <TabsList className="!flex flex-row overflow-x-auto lg:!grid w-full lg:grid-cols-7 h-auto gap-3 bg-transparent p-0 no-scrollbar">
+              <TabsTrigger
+                value="guide"
+                className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-rose-200/50 dark:border-rose-800/30 hover:border-rose-300 dark:hover:border-rose-700 hover:shadow-md data-[state=active]:from-rose-50 data-[state=active]:to-rose-100/80 dark:data-[state=active]:from-rose-950/50 dark:data-[state=active]:to-rose-900/50 data-[state=active]:border-rose-400 dark:data-[state=active]:border-rose-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden min-w-[140px] lg:min-w-0"
+                data-testid="tab-guide"
+              >
               <div className="absolute inset-0 bg-gradient-to-br from-rose-500/0 to-rose-600/0 group-data-[state=active]:from-rose-500/10 group-data-[state=active]:to-rose-600/5 transition-all duration-300" />
               <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-rose-100 to-rose-200 dark:from-rose-900/60 dark:to-rose-800/60 flex items-center justify-center shadow-sm group-data-[state=active]:scale-110 group-data-[state=active]:shadow-lg group-hover:scale-105 transition-all duration-300">
                 <Lightbulb className="w-5 h-5 text-rose-600 dark:text-rose-400 group-data-[state=active]:drop-shadow-sm" />
@@ -282,7 +283,7 @@ export default function Dashboard() {
             </TabsTrigger>
             <TabsTrigger
               value="one-paper"
-              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-blue-200/50 dark:border-blue-800/30 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md data-[state=active]:from-blue-50 data-[state=active]:to-blue-100/80 dark:data-[state=active]:from-blue-950/50 dark:data-[state=active]:to-blue-900/50 data-[state=active]:border-blue-400 dark:data-[state=active]:border-blue-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-blue-200/50 dark:border-blue-800/30 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md data-[state=active]:from-blue-50 data-[state=active]:to-blue-100/80 dark:data-[state=active]:from-blue-950/50 dark:data-[state=active]:to-blue-900/50 data-[state=active]:border-blue-400 dark:data-[state=active]:border-blue-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden min-w-[140px] lg:min-w-0"
               data-testid="tab-one-paper"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-600/0 group-data-[state=active]:from-blue-500/10 group-data-[state=active]:to-blue-600/5 transition-all duration-300" />
@@ -294,7 +295,7 @@ export default function Dashboard() {
             </TabsTrigger>
             <TabsTrigger
               value="pms-css"
-              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-violet-200/50 dark:border-violet-800/30 hover:border-violet-300 dark:hover:border-violet-700 hover:shadow-md data-[state=active]:from-violet-50 data-[state=active]:to-violet-100/80 dark:data-[state=active]:from-violet-950/50 dark:data-[state=active]:to-violet-900/50 data-[state=active]:border-violet-400 dark:data-[state=active]:border-violet-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-violet-200/50 dark:border-violet-800/30 hover:border-violet-300 dark:hover:border-violet-700 hover:shadow-md data-[state=active]:from-violet-50 data-[state=active]:to-violet-100/80 dark:data-[state=active]:from-violet-950/50 dark:data-[state=active]:to-violet-900/50 data-[state=active]:border-violet-400 dark:data-[state=active]:border-violet-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden min-w-[140px] lg:min-w-0"
               data-testid="tab-pms-css"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-violet-500/0 to-violet-600/0 group-data-[state=active]:from-violet-500/10 group-data-[state=active]:to-violet-600/5 transition-all duration-300" />
@@ -306,7 +307,7 @@ export default function Dashboard() {
             </TabsTrigger>
             <TabsTrigger
               value="essay"
-              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-pink-200/50 dark:border-pink-800/30 hover:border-pink-300 dark:hover:border-pink-700 hover:shadow-md data-[state=active]:from-pink-50 data-[state=active]:to-pink-100/80 dark:data-[state=active]:from-pink-950/50 dark:data-[state=active]:to-pink-900/50 data-[state=active]:border-pink-400 dark:data-[state=active]:border-pink-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-pink-200/50 dark:border-pink-800/30 hover:border-pink-300 dark:hover:border-pink-700 hover:shadow-md data-[state=active]:from-pink-50 data-[state=active]:to-pink-100/80 dark:data-[state=active]:from-pink-950/50 dark:data-[state=active]:to-pink-900/50 data-[state=active]:border-pink-400 dark:data-[state=active]:border-pink-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden min-w-[140px] lg:min-w-0"
               data-testid="tab-essay"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-pink-500/0 to-pink-600/0 group-data-[state=active]:from-pink-500/10 group-data-[state=active]:to-pink-600/5 transition-all duration-300" />
@@ -317,7 +318,7 @@ export default function Dashboard() {
             </TabsTrigger>
             <TabsTrigger
               value="news"
-              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-amber-200/50 dark:border-amber-800/30 hover:border-amber-300 dark:hover:border-amber-700 hover:shadow-md data-[state=active]:from-amber-50 data-[state=active]:to-amber-100/80 dark:data-[state=active]:from-amber-950/50 dark:data-[state=active]:to-amber-900/50 data-[state=active]:border-amber-400 dark:data-[state=active]:border-amber-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-amber-200/50 dark:border-amber-800/30 hover:border-amber-300 dark:hover:border-amber-700 hover:shadow-md data-[state=active]:from-amber-50 data-[state=active]:to-amber-100/80 dark:data-[state=active]:from-amber-950/50 dark:data-[state=active]:to-amber-900/50 data-[state=active]:border-amber-400 dark:data-[state=active]:border-amber-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden min-w-[140px] lg:min-w-0"
               data-testid="tab-news"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 to-amber-600/0 group-data-[state=active]:from-amber-500/10 group-data-[state=active]:to-amber-600/5 transition-all duration-300" />
@@ -329,7 +330,7 @@ export default function Dashboard() {
             </TabsTrigger>
             <TabsTrigger
               value="analyzer"
-              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-emerald-200/50 dark:border-emerald-800/30 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md data-[state=active]:from-emerald-50 data-[state=active]:to-emerald-100/80 dark:data-[state=active]:from-emerald-950/50 dark:data-[state=active]:to-emerald-900/50 data-[state=active]:border-emerald-400 dark:data-[state=active]:border-emerald-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-emerald-200/50 dark:border-emerald-800/30 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md data-[state=active]:from-emerald-50 data-[state=active]:to-emerald-100/80 dark:data-[state=active]:from-emerald-950/50 dark:data-[state=active]:to-emerald-900/50 data-[state=active]:border-emerald-400 dark:data-[state=active]:border-emerald-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden min-w-[140px] lg:min-w-0"
               data-testid="tab-analyzer"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-emerald-600/0 group-data-[state=active]:from-emerald-500/10 group-data-[state=active]:to-emerald-600/5 transition-all duration-300" />
@@ -341,7 +342,7 @@ export default function Dashboard() {
             </TabsTrigger>
             <TabsTrigger
               value="vocabulary"
-              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-cyan-200/50 dark:border-cyan-800/30 hover:border-cyan-300 dark:hover:border-cyan-700 hover:shadow-md data-[state=active]:from-cyan-50 data-[state=active]:to-cyan-100/80 dark:data-[state=active]:from-cyan-950/50 dark:data-[state=active]:to-cyan-900/50 data-[state=active]:border-cyan-400 dark:data-[state=active]:border-cyan-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden"
+              className="group relative flex flex-col items-center gap-2.5 py-5 px-4 text-xs rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-slate-800/80 dark:to-slate-800/60 shadow-sm border border-cyan-200/50 dark:border-cyan-800/30 hover:border-cyan-300 dark:hover:border-cyan-700 hover:shadow-md data-[state=active]:from-cyan-50 data-[state=active]:to-cyan-100/80 dark:data-[state=active]:from-cyan-950/50 dark:data-[state=active]:to-cyan-900/50 data-[state=active]:border-cyan-400 dark:data-[state=active]:border-cyan-600 data-[state=active]:shadow-xl transition-all duration-300 overflow-hidden min-w-[140px] lg:min-w-0"
               data-testid="tab-vocabulary"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-600/0 group-data-[state=active]:from-cyan-500/10 group-data-[state=active]:to-cyan-600/5 transition-all duration-300" />
@@ -351,6 +352,7 @@ export default function Dashboard() {
               <span className="relative font-semibold text-slate-700 dark:text-slate-300 group-data-[state=active]:text-cyan-700 dark:group-data-[state=active]:text-cyan-300 transition-colors duration-300">Vocabulary</span>
             </TabsTrigger>
           </TabsList>
+          </div>
 
           <TabsContent value="guide" className="mt-0">
             <TutorialGuideTab setActiveTab={setActiveTab} />
