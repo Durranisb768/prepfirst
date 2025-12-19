@@ -20,6 +20,7 @@ const getOidcConfig = memoize(
 
 export function getSession() {
   const sessionTtl = 7 * 24 * 60 * 60 * 1000; // 1 week
+  const sessionSecret = process.env.SESSION_SECRET || 'fallback-secret-for-demo-only';
 
   let store;
   if (process.env.DATABASE_URL) {
@@ -33,9 +34,8 @@ export function getSession() {
   }
   // If no DATABASE_URL, use memory store (demo mode)
 
-  return session({
-    secret: process.env.SESSION_SECRET!,
-    store,
+  const sessionConfig: session.SessionOptions = {
+    secret: sessionSecret,
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -43,7 +43,13 @@ export function getSession() {
       secure: false, // Allow non-HTTPS in demo mode
       maxAge: sessionTtl,
     },
-  });
+  };
+
+  if (store) {
+    sessionConfig.store = store;
+  }
+
+  return session(sessionConfig);
 }
 
 function updateUserSession(
