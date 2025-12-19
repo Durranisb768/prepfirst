@@ -20,21 +20,27 @@ const getOidcConfig = memoize(
 
 export function getSession() {
   const sessionTtl = 7 * 24 * 60 * 60 * 1000; // 1 week
-  const pgStore = connectPg(session);
-  const sessionStore = new pgStore({
-    conString: process.env.DATABASE_URL,
-    createTableIfMissing: false,
-    ttl: sessionTtl,
-    tableName: "sessions",
-  });
+
+  let store;
+  if (process.env.DATABASE_URL) {
+    const pgStore = connectPg(session);
+    store = new pgStore({
+      conString: process.env.DATABASE_URL,
+      createTableIfMissing: false,
+      ttl: sessionTtl,
+      tableName: "sessions",
+    });
+  }
+  // If no DATABASE_URL, use memory store (demo mode)
+
   return session({
     secret: process.env.SESSION_SECRET!,
-    store: sessionStore,
+    store,
     resave: false,
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: true,
+      secure: false, // Allow non-HTTPS in demo mode
       maxAge: sessionTtl,
     },
   });
@@ -65,6 +71,16 @@ export async function setupAuth(app: Express) {
   app.use(getSession());
   app.use(passport.initialize());
   app.use(passport.session());
+
+  // Check if running in demo mode (no valid REPL_ID)
+  const isDemoMode = !process.env.REPL_ID || process.env.REPL_ID === 'demo-repl-id';
+
+  if (isDemoMode) {
+    console.log("Running in DEMO MODE - Authentication is mocked");
+    passport.serializeUser((user: Express.User, cb) => cb(null, user));
+    passport.deserializeUser((user: Express.User, cb) => cb(null, user));
+    return;
+  }
 
   const config = await getOidcConfig();
 
